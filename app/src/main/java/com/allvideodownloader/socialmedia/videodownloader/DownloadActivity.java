@@ -37,17 +37,18 @@ public class DownloadActivity extends AppCompatActivity {
     public String matag;
     EditText mlink;
     String temp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.download_activity);
         if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == PackageManager.PERMISSION_GRANTED) {
-            Log.v("Main","Permission is granted");
+            Log.v("Main", "Permission is granted");
             //return true;
         } else {
 
-            Log.v("Main","Permission is revoked");
+            Log.v("Main", "Permission is revoked");
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
             //return false;
         }
@@ -68,21 +69,20 @@ public class DownloadActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                   DOWNLOAD_URL += encodeURL;
+                DOWNLOAD_URL += encodeURL;
 
-                if(Content.id==1)
-                {
+                if (Content.id == 1) {
                     DOWNLOAD_URL = "https://downvideo.net/download.php";
                     new Facebook().execute();
-                }
-                else if(Content.id==2||Content.id==3)
-                {
+                } else if (Content.id == 3) {
                     new Insta().execute();
+                } else if (Content.id == 2) {
+                    new InstaVideo().execute();
                 }
 
             }
         });
-        }
+    }
 
     /*private class Title extends AsyncTask<Void,Void,Void>
     {
@@ -191,12 +191,12 @@ public class DownloadActivity extends AppCompatActivity {
         }
     }*/
 
-    private class Facebook extends AsyncTask<Void,Void,Void>
-    {
+    private class Facebook extends AsyncTask<Void, Void, Void> {
         String title;
+
         @Override
         protected void onPreExecute() {
-            ProgressBar progressBar = (ProgressBar)findViewById(R.id.loading_indicator);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.loading_indicator);
             progressBar.setVisibility(View.VISIBLE);
             DoubleBounce doubleBounce = new DoubleBounce();
             progressBar.setIndeterminateDrawable(doubleBounce);
@@ -205,20 +205,19 @@ public class DownloadActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            try
-            {   Document doc = Jsoup.connect(DOWNLOAD_URL)
-                    .data("URL",temp)
-                    .post();
-                Element p = doc.select("p").first();
-                title = p.select("strong").first().text();
-                Log.e("Main",title);
-                Element div = doc.select("div.col-md-3").first();
-                String atag = div.select("a").first().attr("href");
-                matag = atag.replaceAll(";","&");
-                Log.e("Main",matag);
+            try {
+                Document doc = Jsoup.connect("https://www.getfvid.com/downloader")
+                        .data("url", temp)
+                        .post();
+                Element p = doc.select("p.card-text").first();
+                title = p.text();
+                Log.e("Main", title);
+                Element link = doc.select("p#sdlink").first();
+                String atag = link.select("a").first().attr("href");
+                matag = atag;
+                Log.e("Main", matag);
 
-            }catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return null;
@@ -240,7 +239,8 @@ public class DownloadActivity extends AppCompatActivity {
                     DownloadManager.Request req = new DownloadManager.Request(uri);
                     req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                     String filename = title;
-                    req.setDestinationInExternalPublicDir("/VideoDownloader",filename);
+                    filename += ".mp4";
+                    req.setDestinationInExternalPublicDir("/VideoDownloader", filename);
                     StyleableToast.makeText(getBaseContext(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
                     Long ref = dm.enqueue(req);
                 }
@@ -248,13 +248,13 @@ public class DownloadActivity extends AppCompatActivity {
         }
     }
 
-    private class Insta extends AsyncTask<Void,Void,Void>
-    {
-        String dlink ;
-        String imglink;
+    private class InstaVideo extends AsyncTask<Void, Void, Void> {
+
+        String dlink, imglink;
+
         @Override
         protected void onPreExecute() {
-            ProgressBar progressBar = (ProgressBar)findViewById(R.id.loading_indicator);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.loading_indicator);
             progressBar.setVisibility(View.VISIBLE);
             DoubleBounce doubleBounce = new DoubleBounce();
             progressBar.setIndeterminateDrawable(doubleBounce);
@@ -264,12 +264,24 @@ public class DownloadActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                Document doc = Jsoup.connect(DOWNLOAD_URL).get();
-                Elements divtag = doc.select("div.downloadSection");
-                Element imgtag = divtag.select("img").first();
-                Element atag = doc.select("a.downloadBtn").first();
+                /*Log.e("DownloadActivity", DOWNLOAD_URL);
+                Document doc = Jsoup.connect(DOWNLOAD_URL).userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6").get();
+                Elements divtag = doc.select("div.main");
+                Elements specdiv = divtag.select("div.downloadSection");
+                Element imgtag = specdiv.select("img").first();
+                Element atag = specdiv.select("a.downloadBtn").first();
                 dlink = atag.attr("href");
-                imglink = imgtag.attr("src");
+                imglink = imgtag.attr("src");*/
+                Document doc = Jsoup.connect("https://www.10insta.net/#grid-gallery")
+                        .data("url", temp)
+                        .post();
+                Log.v("Hello", doc.title());
+                Element srctag = doc.select("img.card-img-top").first();
+                Element ptag = doc.select("p.card-text").first();
+                Element atag = ptag.select("a").first();
+                imglink = srctag.attr("src");
+                dlink = "https://www.10insta.net/";
+                dlink += atag.attr("href");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -281,12 +293,9 @@ public class DownloadActivity extends AppCompatActivity {
             View loadingIndicator = findViewById(R.id.loading_indicator);
             loadingIndicator.setVisibility(View.GONE);
             TextView t = (TextView) findViewById(R.id.imgtxt);
-            if(Content.id==2)
-            {
+            if (Content.id == 2) {
                 t.setText("Video Preview");
-            }
-            else
-            {
+            } else {
                 t.setText("Image Preview");
             }
             t.setVisibility(View.VISIBLE);
@@ -301,13 +310,81 @@ public class DownloadActivity extends AppCompatActivity {
                     Uri uri = Uri.parse(dlink);
                     DownloadManager.Request req = new DownloadManager.Request(uri);
                     req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    if(Content.id==2)
-                    {
-                        req.setDestinationInExternalPublicDir("/VideoDownloader","insta.mp4");
+                    if (Content.id == 2) {
+                        req.setDestinationInExternalPublicDir("/VideoDownloader", "insta.mp4");
+                    } else {
+                        req.setDestinationInExternalPublicDir("/VideoDownloader", "insta.jpg");
                     }
-                    else
-                    {
-                        req.setDestinationInExternalPublicDir("/VideoDownloader","insta.jpg");
+                    StyleableToast.makeText(getBaseContext(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
+                    Long ref = dm.enqueue(req);
+                }
+            });
+        }
+    }
+
+    private class Insta extends AsyncTask<Void, Void, Void> {
+        String dlink;
+        String imglink;
+
+        @Override
+        protected void onPreExecute() {
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.loading_indicator);
+            progressBar.setVisibility(View.VISIBLE);
+            DoubleBounce doubleBounce = new DoubleBounce();
+            progressBar.setIndeterminateDrawable(doubleBounce);
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+                /*Log.e("DownloadActivity", DOWNLOAD_URL);
+                Document doc = Jsoup.connect(DOWNLOAD_URL).userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6").get();
+                Elements divtag = doc.select("div.main");
+                Elements specdiv = divtag.select("div.downloadSection");
+                Element imgtag = specdiv.select("img").first();
+                Element atag = specdiv.select("a.downloadBtn").first();
+                dlink = atag.attr("href");
+                imglink = imgtag.attr("src");*/
+                Document doc = Jsoup.connect("https://www.dinsta.com/photos/")
+                        .data("url", temp)
+                        .post();
+                Log.v("Hello", doc.title());
+                Element imgtag = doc.select("img").first();
+                dlink = imgtag.attr("src");
+                imglink = imgtag.attr("src");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            View loadingIndicator = findViewById(R.id.loading_indicator);
+            loadingIndicator.setVisibility(View.GONE);
+            TextView t = (TextView) findViewById(R.id.imgtxt);
+            if (Content.id == 2) {
+                t.setText("Video Preview");
+            } else {
+                t.setText("Image Preview");
+            }
+            t.setVisibility(View.VISIBLE);
+            Button b = (Button) findViewById(R.id.instadownload);
+            b.setVisibility(View.VISIBLE);
+            final ImageView img = (ImageView) findViewById(R.id.instaimg);
+            Picasso.get().load(imglink).placeholder(R.drawable.loading).into(img);
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DownloadManager dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                    Uri uri = Uri.parse(dlink);
+                    DownloadManager.Request req = new DownloadManager.Request(uri);
+                    req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                    if (Content.id == 2) {
+                        req.setDestinationInExternalPublicDir("/VideoDownloader", "insta.mp4");
+                    } else {
+                        req.setDestinationInExternalPublicDir("/VideoDownloader", "insta.jpg");
                     }
                     StyleableToast.makeText(getBaseContext(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
                     Long ref = dm.enqueue(req);

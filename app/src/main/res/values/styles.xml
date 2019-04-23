@@ -11,12 +11,12 @@
     </style>
 
     <!-- Sliding Animation -->
-<style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
-<item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
-<item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
-<item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
-<item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
-</style>
+    <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+    </style>
 
     <!-- List Item Styling -->
     <style name="CategoryStyle">
@@ -40,7 +40,7 @@
         <item name="stRadius">5dp</item>
     </style>
 
-    <style name = "wapptoast">
+    <style name="wapptoast">
         <item name="stTextBold">true</item>
         <item name="stTextColor">@color/colorPrimaryDark</item>
         <item name="stFont">@font/bariol</item>
