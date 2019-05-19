@@ -1,6 +1,7 @@
 package com.allvideodownloader.socialmedia.videodownloader;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -31,7 +32,6 @@ import java.util.ArrayList;
 public class WhatsApp extends AppCompatActivity {
     private ArrayList<File> fileList = new ArrayList<File>();
     ArrayAdapter<File> fileAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
