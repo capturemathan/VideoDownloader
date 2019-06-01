@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts>
+    <shortcut xmlns:android="http://schemas.android.com/apk/res/android"
+        android:enabled="true"
+        android:icon="@drawable/whatsapp"
+        android:shortcutId="whatsapp"
+        android:shortcutShortLabel="@string/whatsapp_shortcut">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.allvideodownloader.socialmedia.videodownloader.WhatsApp"
+            android:targetPackage="com.allvideodownloader.socialmedia.videodownloader" />
+    </shortcut>
+</shortcuts>
