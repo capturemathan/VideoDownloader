@@ -1,4 +1,4 @@
-[![Play Store Info](https://img.shields.io/badge/Play_Store-v1.3-36B0C1.svg?style=flat-square&v=1.3)](https://play.google.com/store/apps/details?id=com.allvideodownloader.socialmedia.videodownloader) [![Play Store Downloads](https://img.shields.io/badge/Downloads-500+-E04253.svg?style=flat-square)](https://play.google.com/store/apps/details?id=com.allvideodownloader.socialmedia.videodownloader)
+[![Play Store Info](https://img.shields.io/badge/Play_Store-v1.3-36B0C1.svg?style=flat-square&v=1.3)](https://play.google.com/store/apps/details?id=com.allvideodownloader.socialmedia.videodownloader) [![Play Store Downloads](https://img.shields.io/badge/Downloads-1k+-E04253.svg?style=flat-square)](https://play.google.com/store/apps/details?id=com.allvideodownloader.socialmedia.videodownloader)
 
 # Video Downloader :smile:
 An essential application in each and every mobile phone.
