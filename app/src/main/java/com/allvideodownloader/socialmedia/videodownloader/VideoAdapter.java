@@ -19,6 +19,7 @@ class VideoAdapter extends ArrayAdapter<Video> {
         mColorResourceId = colorResourceId;
         mContext = context;
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // check if there is an existing list item (called convertView) that we can use,

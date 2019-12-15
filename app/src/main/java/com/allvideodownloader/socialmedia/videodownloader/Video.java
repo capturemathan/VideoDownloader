@@ -6,11 +6,11 @@ public class Video {
     private String mUrl;
     private String mFormat;
 
-    public Video(String res,String format,String size,String url) {
-        mRes=res;
-        mSize=size;
-        mUrl=url;
-        mFormat=format;
+    public Video(String res, String format, String size, String url) {
+        mRes = res;
+        mSize = size;
+        mUrl = url;
+        mFormat = format;
     }
 
     public String getRes() {

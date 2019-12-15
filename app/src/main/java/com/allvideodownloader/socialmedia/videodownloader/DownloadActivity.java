@@ -8,9 +8,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.PermissionChecker;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +17,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.PermissionChecker;
+
 import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.muddzdev.styleabletoast.StyleableToast;
 import com.squareup.picasso.Picasso;
@@ -27,7 +28,6 @@ import com.squareup.picasso.Picasso;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -55,10 +55,8 @@ public class DownloadActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
                 //return false;
             }
-        }
-        else
-        {
-            int permission = PermissionChecker.checkSelfPermission(getApplicationContext(),Manifest.permission.WRITE_EXTERNAL_STORAGE );
+        } else {
+            int permission = PermissionChecker.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
             if (permission == PermissionChecker.PERMISSION_GRANTED) {
                 // good to go
@@ -206,6 +204,11 @@ public class DownloadActivity extends AppCompatActivity {
             });
         }
     }*/
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
     private class Facebook extends AsyncTask<Void, Void, Void> {
         String title;
@@ -407,10 +410,5 @@ public class DownloadActivity extends AppCompatActivity {
                 }
             });
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 }

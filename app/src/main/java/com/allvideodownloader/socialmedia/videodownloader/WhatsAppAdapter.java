@@ -5,13 +5,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.ThumbnailUtils;
 import android.provider.MediaStore;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -21,13 +22,13 @@ public class WhatsAppAdapter extends ArrayAdapter {
     private Context mContext;
     private int mColorResourceId;
 
-    public WhatsAppAdapter(ArrayList<File> filesList, Context context, int colorResourceId)
-    {
-        super(context,0,filesList);
+    public WhatsAppAdapter(ArrayList<File> filesList, Context context, int colorResourceId) {
+        super(context, 0, filesList);
         this.filesList = filesList;
         mContext = context;
         mColorResourceId = colorResourceId;
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // check if there is an existing list item (called convertView) that we can use,
@@ -49,9 +50,7 @@ public class WhatsAppAdapter extends ArrayAdapter {
             Bitmap thumb = ThumbnailUtils.createVideoThumbnail(currentFile.getAbsolutePath(),
                     MediaStore.Images.Thumbnails.MINI_KIND);
             i.setImageBitmap(thumb);
-        }
-        else
-        {
+        } else {
             Bitmap myBitmap = BitmapFactory.decodeFile(currentFile.getAbsolutePath());
             i.setImageBitmap(myBitmap);
         }
