@@ -13,7 +13,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.PermissionChecker;
 
 import com.allvideodownloader.socialmedia.videodownloader.R;
-import com.allvideodownloader.socialmedia.videodownloader.models.WhatsApp;
 
 public class Content extends AppCompatActivity {
 

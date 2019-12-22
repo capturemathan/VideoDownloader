@@ -34,7 +34,7 @@
             android:label="Download Video"
             android:parentActivityName=".activities.Content" />
         <activity
-            android:name=".models.WhatsApp"
+            android:name=".activities.WhatsApp"
             android:label="My Downloads"
             android:parentActivityName=".activities.Content" />
     </application>

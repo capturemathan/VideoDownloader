@@ -1,0 +1,121 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:float="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/choose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Enter the link to Download"
+            android:textColor="@color/primary_text"
+            android:textSize="24dp" />
+
+        <com.wrapp.floatlabelededittext.FloatLabeledEditText
+            android:id="@+id/link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/choose"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            float:fletPadding="5dp">
+
+            <EditText
+                android:id="@+id/dsrlink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/choose"
+                android:layout_centerHorizontal="true"
+                android:hint="Paste your Link"
+                android:inputType="text"
+                android:paddingLeft="16dp"
+                android:paddingTop="20dp"
+                android:paddingRight="16dp"
+                android:textAllCaps="true" />
+        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+        <TextView
+            android:id="@+id/dtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/link"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Download type"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/dtypespinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/link"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/dtype"
+            android:gravity="center"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/imgtxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/download"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:textColor="@drawable/button"
+            android:textSize="24dp"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/instaimg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgtxt"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="18dp"
+            android:scaleType="centerCrop" />
+
+        <Button
+            android:id="@+id/instadownload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/instaimg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button"
+            android:onClick="instadload"
+            android:text="Download"
+            android:textColor="#FFFFFF"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dtype"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="18dp"
+            android:background="@drawable/button"
+            android:onClick="proceed"
+            android:text="Fetch Details"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
+</ScrollView>

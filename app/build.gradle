@@ -35,4 +35,7 @@ dependencies {
     implementation 'com.wrapp.floatlabelededittext:library:0.0.6'
     implementation 'com.muddzdev:styleabletoast:2.2.0'
     implementation 'com.tbuonomo:morph-bottom-navigation:1.0.1'
+    implementation 'rebus:bottom-dialog:0.0.5'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 }

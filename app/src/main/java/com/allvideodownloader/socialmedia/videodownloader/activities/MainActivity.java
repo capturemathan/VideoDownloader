@@ -10,11 +10,21 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.allvideodownloader.socialmedia.videodownloader.R;
 import com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_fb;
+import com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_insta_image;
+import com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_whatsapp;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import rebus.bottomdialog.BottomDialog;
+
 public class MainActivity extends AppCompatActivity {
+
     fragment_fb fragmentFb = new fragment_fb();
+    fragment_insta_image fragmentInstaImage = new fragment_insta_image();
+    fragment_whatsapp fragmentWhatsapp = new fragment_whatsapp();
     Fragment fragment = fragmentFb;
+    BottomDialog dialog;
+    int c = 0;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -24,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_facebook:
                     fragment = fragmentFb;
+                    break;
+                case R.id.navigation_instagram:
+                    fragment = fragmentInstaImage;
+                    break;
+                case R.id.navigation_whatsapp:
+                    fragment = fragmentWhatsapp;
                     break;
             }
             return loadFragment(fragment);

@@ -284,14 +284,6 @@ public class DownloadActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                /*Log.e("DownloadActivity", DOWNLOAD_URL);
-                Document doc = Jsoup.connect(DOWNLOAD_URL).userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6").get();
-                Elements divtag = doc.select("div.main");
-                Elements specdiv = divtag.select("div.downloadSection");
-                Element imgtag = specdiv.select("img").first();
-                Element atag = specdiv.select("a.downloadBtn").first();
-                dlink = atag.attr("href");
-                imglink = imgtag.attr("src");*/
                 Document doc = Jsoup.connect("https://www.10insta.net/#grid-gallery")
                         .data("url", temp)
                         .post();
@@ -358,14 +350,6 @@ public class DownloadActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                /*Log.e("DownloadActivity", DOWNLOAD_URL);
-                Document doc = Jsoup.connect(DOWNLOAD_URL).userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6").get();
-                Elements divtag = doc.select("div.main");
-                Elements specdiv = divtag.select("div.downloadSection");
-                Element imgtag = specdiv.select("img").first();
-                Element atag = specdiv.select("a.downloadBtn").first();
-                dlink = atag.attr("href");
-                imglink = imgtag.attr("src");*/
                 Document doc = Jsoup.connect("https://www.dinsta.com/photos/")
                         .data("url", temp)
                         .post();

@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader.models;
+package com.allvideodownloader.socialmedia.videodownloader.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
