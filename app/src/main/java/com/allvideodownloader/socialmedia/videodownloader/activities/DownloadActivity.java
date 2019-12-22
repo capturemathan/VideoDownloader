@@ -214,7 +214,6 @@ public class DownloadActivity extends AppCompatActivity {
 
     private class Facebook extends AsyncTask<Void, Void, Void> {
         String title;
-
         @Override
         protected void onPreExecute() {
             ProgressBar progressBar = (ProgressBar) findViewById(R.id.loading_indicator);

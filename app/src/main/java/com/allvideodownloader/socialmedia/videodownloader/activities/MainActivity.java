@@ -1,24 +1,53 @@
 package com.allvideodownloader.socialmedia.videodownloader.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.allvideodownloader.socialmedia.videodownloader.R;
+import com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_fb;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+    fragment_fb fragmentFb = new fragment_fb();
+    Fragment fragment = fragmentFb;
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            switch (item.getItemId()) {
+                case R.id.navigation_facebook:
+                    fragment = fragmentFb;
+                    break;
+            }
+            return loadFragment(fragment);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        loadFragment(fragment);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setHapticFeedbackEnabled(true);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
-    public void proceed(View view) {
-        Intent i = new Intent(MainActivity.this, Content.class);
-        startActivity(i);
+    private boolean loadFragment(Fragment fragment) {
+        if (fragment != null) {
+            FragmentTransaction ft =
+                    getSupportFragmentManager().beginTransaction();
+            ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            ft.replace(R.id.fragment_container, fragment).commit();
+            return true;
+        }
+        return false;
     }
-
 }

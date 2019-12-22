@@ -1,0 +1,84 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:float="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/choose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Enter the Download Link"
+            android:textColor="@color/primary_text"
+            android:textSize="24dp" />
+
+        <com.wrapp.floatlabelededittext.FloatLabeledEditText
+            android:id="@+id/link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/choose"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            float:fletPadding="5dp">
+
+            <EditText
+                android:id="@+id/dsrlink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/choose"
+                android:layout_centerHorizontal="true"
+                android:hint="Paste your Link"
+                android:inputType="text"
+                android:paddingLeft="16dp"
+                android:paddingTop="20dp"
+                android:paddingRight="16dp" />
+        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+        <Button
+            android:id="@+id/download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/link"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="18dp"
+            android:background="@drawable/button"
+            android:onClick="proceed"
+            android:text="Fetch Details"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/genlink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/download"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:textColor="@color/primary_text"
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/fbdload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/genlink"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="18dp"
+            android:background="@drawable/button"
+            android:text="Download in Standard Definition"
+            android:textColor="#FFFFFF"
+            android:visibility="invisible" />
+    </RelativeLayout>
+</ScrollView>
