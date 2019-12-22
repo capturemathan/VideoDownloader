@@ -31,10 +31,10 @@
     </style>
 
     <style name="mytoast">
-        <item name="stTextColor">@color/icons</item>
-        <item name="stFont">@font/manroperegular</item>
+        <item name="stTextColor">@color/textBlack</item>
+        <item name="stFont">@font/manropethin</item>
         <item name="stTextSize">14sp</item>
-        <item name="stColorBackground">@color/colorPrimary</item>
+        <item name="stColorBackground">@color/colorBackground</item>
         <item name="stSolidBackground">true</item>
         <item name="stLength">SHORT</item>
         <item name="stRadius">5dp</item>
@@ -42,10 +42,10 @@
 
     <style name="wapptoast">
         <item name="stTextBold">true</item>
-        <item name="stTextColor">@color/colorPrimaryDark</item>
-        <item name="stFont">@font/manroperegular</item>
+        <item name="stTextColor">@color/textBlack</item>
+        <item name="stFont">@font/manropethin</item>
         <item name="stTextSize">14sp</item>
-        <item name="stColorBackground">@color/icons</item>
+        <item name="stColorBackground">@color/colorBackground</item>
         <item name="stSolidBackground">true</item>
         <item name="stLength">SHORT</item>
         <item name="stRadius">5dp</item>

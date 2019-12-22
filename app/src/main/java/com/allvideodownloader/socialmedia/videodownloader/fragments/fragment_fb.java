@@ -51,7 +51,11 @@ public class fragment_fb extends Fragment {
             @Override
             public void onClick(View view) {
                 downlink = editText.getText().toString();
-                new Facebook().execute();
+                if (downlink.isEmpty()) {
+                    Toast.makeText(getActivity(), "Please enter link", Toast.LENGTH_SHORT).show();
+                } else {
+                    new Facebook().execute();
+                }
             }
         });
         return rootView;
@@ -83,6 +87,12 @@ public class fragment_fb extends Fragment {
                 Log.e("Main", matag);
 
             } catch (Exception e) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), "Invalid Link", Toast.LENGTH_SHORT).show();
+                    }
+                });
                 e.printStackTrace();
             }
             return null;
@@ -91,22 +101,35 @@ public class fragment_fb extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             progressDialog.dismiss();
-            t.setText(title);
-            b.setVisibility(View.VISIBLE);
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    DownloadManager dm = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
-                    Uri uri = Uri.parse(matag);
-                    DownloadManager.Request req = new DownloadManager.Request(uri);
-                    req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    String filename = title;
-                    filename += ".mp4";
-                    req.setDestinationInExternalPublicDir("/VideoDownloader", filename);
-                    StyleableToast.makeText(getActivity(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
-                    Long ref = dm.enqueue(req);
-                }
-            });
+            if (title == null) {
+                b.setVisibility(View.INVISIBLE);
+            } else {
+                t.setText(title);
+                b.setVisibility(View.VISIBLE);
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        DownloadManager dm = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
+                        Uri uri = Uri.parse(matag);
+                        DownloadManager.Request req = new DownloadManager.Request(uri);
+                        req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                        String filename = title;
+                        filename += ".mp4";
+                        req.setDestinationInExternalPublicDir("/VideoDownloader", filename);
+                        StyleableToast.makeText(getActivity(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
+                        Long ref = dm.enqueue(req);
+                    }
+                });
+            }
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (progressDialog != null) {
+            progressDialog.dismiss();
+            progressDialog = null;
         }
     }
 }

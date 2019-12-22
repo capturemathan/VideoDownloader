@@ -28,8 +28,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import java.io.IOException;
-
 public class fragment_insta_image extends Fragment {
     ProgressDialog progressDialog;
     EditText editText;
@@ -99,7 +97,13 @@ public class fragment_insta_image extends Fragment {
                 Element imgtag = doc.select("img").first();
                 dlink = imgtag.attr("src");
                 imglink = imgtag.attr("src");
-            } catch (IOException e) {
+            } catch (Exception e) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), "Invalid Link", Toast.LENGTH_SHORT).show();
+                    }
+                });
                 e.printStackTrace();
             }
             return null;
@@ -108,23 +112,29 @@ public class fragment_insta_image extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             t.setText("Image Preview");
-            t.setVisibility(View.VISIBLE);
-            b.setVisibility(View.VISIBLE);
-            img.setVisibility(View.VISIBLE);
-            Glide.with(getActivity()).load(imglink).into(img);
-            progressDialog.dismiss();
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    DownloadManager dm = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
-                    Uri uri = Uri.parse(dlink);
-                    DownloadManager.Request req = new DownloadManager.Request(uri);
-                    req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    req.setDestinationInExternalPublicDir("/VideoDownloader", "insta.jpg");
-                    StyleableToast.makeText(getActivity(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
-                    Long ref = dm.enqueue(req);
-                }
-            });
+            if (dlink == null) {
+                t.setVisibility(View.GONE);
+                b.setVisibility(View.GONE);
+                img.setVisibility(View.GONE);
+            } else {
+                t.setVisibility(View.VISIBLE);
+                b.setVisibility(View.VISIBLE);
+                img.setVisibility(View.VISIBLE);
+                Glide.with(getActivity()).load(imglink).into(img);
+                progressDialog.dismiss();
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        DownloadManager dm = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
+                        Uri uri = Uri.parse(dlink);
+                        DownloadManager.Request req = new DownloadManager.Request(uri);
+                        req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                        req.setDestinationInExternalPublicDir("/VideoDownloader", "insta.jpg");
+                        StyleableToast.makeText(getActivity(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
+                        Long ref = dm.enqueue(req);
+                    }
+                });
+            }
         }
     }
 
@@ -152,7 +162,13 @@ public class fragment_insta_image extends Fragment {
                 imglink = srctag.attr("src");
                 dlink = "https://www.10insta.net/";
                 dlink += atag.attr("href");
-            } catch (IOException e) {
+            } catch (Exception e) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), "Invalid Link", Toast.LENGTH_SHORT).show();
+                    }
+                });
                 e.printStackTrace();
             }
             return null;
@@ -161,23 +177,29 @@ public class fragment_insta_image extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             t.setText("Video Preview");
-            t.setVisibility(View.VISIBLE);
-            b.setVisibility(View.VISIBLE);
-            img.setVisibility(View.VISIBLE);
-            Glide.with(getActivity()).load(imglink).into(img);
-            progressDialog.dismiss();
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    DownloadManager dm = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
-                    Uri uri = Uri.parse(dlink);
-                    DownloadManager.Request req = new DownloadManager.Request(uri);
-                    req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    req.setDestinationInExternalPublicDir("/VideoDownloader", "insta.mp4");
-                    StyleableToast.makeText(getActivity(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
-                    Long ref = dm.enqueue(req);
-                }
-            });
+            if (dlink == null) {
+                t.setVisibility(View.GONE);
+                b.setVisibility(View.GONE);
+                img.setVisibility(View.GONE);
+            } else {
+                t.setVisibility(View.VISIBLE);
+                b.setVisibility(View.VISIBLE);
+                img.setVisibility(View.VISIBLE);
+                Glide.with(getActivity()).load(imglink).into(img);
+                progressDialog.dismiss();
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        DownloadManager dm = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
+                        Uri uri = Uri.parse(dlink);
+                        DownloadManager.Request req = new DownloadManager.Request(uri);
+                        req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                        req.setDestinationInExternalPublicDir("/VideoDownloader", "insta.mp4");
+                        StyleableToast.makeText(getActivity(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
+                        Long ref = dm.enqueue(req);
+                    }
+                });
+            }
         }
     }
 }
