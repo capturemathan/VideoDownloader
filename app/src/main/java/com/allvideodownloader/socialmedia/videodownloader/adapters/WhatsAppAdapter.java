@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader;
+package com.allvideodownloader.socialmedia.videodownloader.adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
+
+import com.allvideodownloader.socialmedia.videodownloader.R;
 
 import java.io.File;
 import java.util.ArrayList;

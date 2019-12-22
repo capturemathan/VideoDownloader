@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader;
+package com.allvideodownloader.socialmedia.videodownloader.models;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.allvideodownloader.socialmedia.videodownloader.R;
+import com.allvideodownloader.socialmedia.videodownloader.adapters.WhatsAppAdapter;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 import java.io.File;

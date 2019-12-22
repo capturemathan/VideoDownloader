@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:node="replace">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -26,17 +26,17 @@
                 android:resource="@xml/shortcuts" />
         </activity>
         <activity
-            android:name=".Content"
+            android:name=".activities.Content"
             android:label="Content"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".activities.MainActivity" />
         <activity
-            android:name=".DownloadActivity"
+            android:name=".activities.DownloadActivity"
             android:label="Download Video"
-            android:parentActivityName=".Content" />
+            android:parentActivityName=".activities.Content" />
         <activity
-            android:name=".WhatsApp"
+            android:name=".models.WhatsApp"
             android:label="My Downloads"
-            android:parentActivityName=".Content" />
+            android:parentActivityName=".activities.Content" />
     </application>
 
 </manifest>

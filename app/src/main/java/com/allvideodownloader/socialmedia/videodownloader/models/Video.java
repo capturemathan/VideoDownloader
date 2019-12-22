@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader;
+package com.allvideodownloader.socialmedia.videodownloader.models;
 
 public class Video {
     private String mRes;

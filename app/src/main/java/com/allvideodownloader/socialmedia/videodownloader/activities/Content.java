@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader;
+package com.allvideodownloader.socialmedia.videodownloader.activities;
 
 import android.Manifest;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.PermissionChecker;
+
+import com.allvideodownloader.socialmedia.videodownloader.R;
+import com.allvideodownloader.socialmedia.videodownloader.models.WhatsApp;
 
 public class Content extends AppCompatActivity {
 

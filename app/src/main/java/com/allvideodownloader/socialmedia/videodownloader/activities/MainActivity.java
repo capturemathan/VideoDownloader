@@ -1,10 +1,12 @@
-package com.allvideodownloader.socialmedia.videodownloader;
+package com.allvideodownloader.socialmedia.videodownloader.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.allvideodownloader.socialmedia.videodownloader.R;
 
 public class MainActivity extends AppCompatActivity {
 
