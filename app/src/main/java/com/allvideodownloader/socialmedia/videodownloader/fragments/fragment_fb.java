@@ -103,7 +103,7 @@ public class fragment_fb extends Fragment {
                     String filename = title;
                     filename += ".mp4";
                     req.setDestinationInExternalPublicDir("/VideoDownloader", filename);
-                    StyleableToast.makeText(getContext(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
+                    StyleableToast.makeText(getActivity(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
                     Long ref = dm.enqueue(req);
                 }
             });

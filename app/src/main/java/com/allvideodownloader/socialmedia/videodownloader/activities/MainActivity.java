@@ -14,15 +14,12 @@ import com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_ins
 import com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_whatsapp;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import rebus.bottomdialog.BottomDialog;
-
 public class MainActivity extends AppCompatActivity {
 
     fragment_fb fragmentFb = new fragment_fb();
     fragment_insta_image fragmentInstaImage = new fragment_insta_image();
     fragment_whatsapp fragmentWhatsapp = new fragment_whatsapp();
     Fragment fragment = fragmentFb;
-    BottomDialog dialog;
     int c = 0;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

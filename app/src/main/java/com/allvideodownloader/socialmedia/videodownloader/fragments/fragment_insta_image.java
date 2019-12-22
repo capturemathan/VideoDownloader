@@ -121,7 +121,7 @@ public class fragment_insta_image extends Fragment {
                     DownloadManager.Request req = new DownloadManager.Request(uri);
                     req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                     req.setDestinationInExternalPublicDir("/VideoDownloader", "insta.jpg");
-                    StyleableToast.makeText(getContext(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
+                    StyleableToast.makeText(getActivity(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
                     Long ref = dm.enqueue(req);
                 }
             });
@@ -174,7 +174,7 @@ public class fragment_insta_image extends Fragment {
                     DownloadManager.Request req = new DownloadManager.Request(uri);
                     req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                     req.setDestinationInExternalPublicDir("/VideoDownloader", "insta.mp4");
-                    StyleableToast.makeText(getContext(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
+                    StyleableToast.makeText(getActivity(), "Download Started", Toast.LENGTH_SHORT, R.style.mytoast).show();
                     Long ref = dm.enqueue(req);
                 }
             });

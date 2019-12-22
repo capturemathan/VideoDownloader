@@ -1,10 +1,6 @@
 package com.allvideodownloader.socialmedia.videodownloader.adapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.ThumbnailUtils;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
-
 import com.allvideodownloader.socialmedia.videodownloader.R;
+import com.bumptech.glide.Glide;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -33,29 +28,22 @@ public class WhatsAppAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // check if there is an existing list item (called convertView) that we can use,
-        // otherwise if convertView is null, then inflate a new list item layout .
-        View listItemView = convertView;
-        if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.whatsapp_list_item, parent, false);
+        View gridItemView = convertView;
+        if (gridItemView == null) {
+            gridItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.whatsapp_grid_item, parent, false);
         }
         File currentFile = filesList.get(position);
-        TextView t = listItemView.findViewById(R.id.statustitle);
+        TextView t = gridItemView.findViewById(R.id.whatsapp_text);
         t.setText(currentFile.getName());
-        View textContainer = listItemView.findViewById(R.id.text_container);
-        int color = ContextCompat.getColor(getContext(), mColorResourceId);
-        textContainer.setBackgroundColor(color);
-        ImageView i = listItemView.findViewById(R.id.listimage);
+        ImageView imageView = gridItemView.findViewById(R.id.playbtn);
+        ImageView i = gridItemView.findViewById(R.id.whatsapp_picture);
         if (currentFile.getAbsolutePath().endsWith(".mp4")) {
-            //Uri video = Uri.parse(currentFile.getAbsolutePath());
-            Bitmap thumb = ThumbnailUtils.createVideoThumbnail(currentFile.getAbsolutePath(),
-                    MediaStore.Images.Thumbnails.MINI_KIND);
-            i.setImageBitmap(thumb);
+            Glide.with(getContext()).load(currentFile.getAbsolutePath()).thumbnail(0.4f).into(i);
+            imageView.setVisibility(View.VISIBLE);
         } else {
-            Bitmap myBitmap = BitmapFactory.decodeFile(currentFile.getAbsolutePath());
-            i.setImageBitmap(myBitmap);
+            Glide.with(getContext()).load(currentFile.getAbsolutePath()).thumbnail(0.4f).into(i);
         }
-        return listItemView;
+        return gridItemView;
     }
 }

@@ -2,12 +2,12 @@
 <shortcuts>
     <shortcut xmlns:android="http://schemas.android.com/apk/res/android"
         android:enabled="true"
-        android:icon="@drawable/whatsapp"
+        android:icon="@drawable/icon_whatsapp"
         android:shortcutId="whatsapp"
         android:shortcutShortLabel="@string/whatsapp_shortcut">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="com.allvideodownloader.socialmedia.videodownloader.activities.WhatsApp"
+            android:targetClass="com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_whatsapp"
             android:targetPackage="com.allvideodownloader.socialmedia.videodownloader" />
     </shortcut>
 </shortcuts>

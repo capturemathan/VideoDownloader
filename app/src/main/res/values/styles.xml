@@ -32,7 +32,7 @@
 
     <style name="mytoast">
         <item name="stTextColor">@color/icons</item>
-        <item name="stFont">@font/bariol</item>
+        <item name="stFont">@font/manroperegular</item>
         <item name="stTextSize">14sp</item>
         <item name="stColorBackground">@color/colorPrimary</item>
         <item name="stSolidBackground">true</item>
@@ -43,7 +43,7 @@
     <style name="wapptoast">
         <item name="stTextBold">true</item>
         <item name="stTextColor">@color/colorPrimaryDark</item>
-        <item name="stFont">@font/bariol</item>
+        <item name="stFont">@font/manroperegular</item>
         <item name="stTextSize">14sp</item>
         <item name="stColorBackground">@color/icons</item>
         <item name="stSolidBackground">true</item>
