@@ -33,6 +33,7 @@ dependencies {
     implementation 'com.wrapp.floatlabelededittext:library:0.0.6'
     implementation 'com.muddzdev:styleabletoast:2.2.0'
     implementation 'com.tbuonomo:morph-bottom-navigation:1.0.1'
+    implementation 'com.github.medyo:android-about-page:1.2.5'
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 }

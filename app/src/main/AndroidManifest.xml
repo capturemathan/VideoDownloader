@@ -26,17 +26,8 @@
                 android:resource="@xml/shortcuts" />
         </activity>
         <activity
-            android:name=".activities.Content"
-            android:label="Content"
-            android:parentActivityName=".activities.MainActivity" />
-        <activity
-            android:name=".activities.DownloadActivity"
-            android:label="Download Video"
-            android:parentActivityName=".activities.Content" />
-        <activity
-            android:name=".activities.WhatsApp"
-            android:label="My Downloads"
-            android:parentActivityName=".activities.Content" />
+            android:name=".activities.AboutActivity"
+            android:label="About" />
     </application>
 
 </manifest>

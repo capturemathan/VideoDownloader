@@ -1,6 +1,8 @@
 package com.allvideodownloader.socialmedia.videodownloader.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,23 @@ import com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_wha
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.about_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuAbout:
+                startActivity(new Intent(MainActivity.this, AboutActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     fragment_fb fragmentFb = new fragment_fb();
     fragment_insta_image fragmentInstaImage = new fragment_insta_image();
