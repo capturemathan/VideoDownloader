@@ -1,8 +1,10 @@
 package com.allvideodownloader.socialmedia.videodownloader.fragments;
 
+import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.allvideodownloader.socialmedia.videodownloader.R;
+import com.allvideodownloader.socialmedia.videodownloader.helpers.checkNetwork;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 import org.jsoup.Jsoup;
@@ -33,6 +36,7 @@ public class fragment_fb extends Fragment {
     String matag;
     TextView t;
     Button b;
+    AlertDialog.Builder builder;
 
     public fragment_fb() {
         // Required empty public constructor
@@ -53,6 +57,19 @@ public class fragment_fb extends Fragment {
                 downlink = editText.getText().toString();
                 if (downlink.isEmpty()) {
                     Toast.makeText(getActivity(), "Please enter link", Toast.LENGTH_SHORT).show();
+                }
+                else if (!checkNetwork.isConnected(getActivity())) {
+                    builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("Please Connect to the Internet")
+                            .setCancelable(false)
+                            .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.setTitle("Internet Required");
+                    alert.show();
                 } else {
                     new Facebook().execute();
                 }

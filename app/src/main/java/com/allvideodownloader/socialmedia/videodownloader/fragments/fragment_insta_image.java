@@ -1,8 +1,10 @@
 package com.allvideodownloader.socialmedia.videodownloader.fragments;
 
+import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -23,6 +25,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.allvideodownloader.socialmedia.videodownloader.R;
+import com.allvideodownloader.socialmedia.videodownloader.helpers.checkNetwork;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
@@ -42,6 +45,7 @@ public class fragment_insta_image extends Fragment {
     ImageView img;
     Button b;
     Spinner spinner;
+    AlertDialog.Builder builder;
 
     public fragment_insta_image() {
         // Required empty public constructor
@@ -86,6 +90,18 @@ public class fragment_insta_image extends Fragment {
                     Toast.makeText(getContext(), "Please provide the link", Toast.LENGTH_SHORT).show();
                 } else if ((spinner.getSelectedItem() == null) || (spinner == null)) {
                     Toast.makeText(getContext(), "Please select the type", Toast.LENGTH_SHORT).show();
+                } else if (!checkNetwork.isConnected(getActivity())) {
+                    builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("Please Connect to the Internet")
+                            .setCancelable(false)
+                            .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.setTitle("Internet Required");
+                    alert.show();
                 } else if (spinner.getSelectedItemPosition() == 0) {
                     new Insta().execute();
                 } else {
