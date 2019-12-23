@@ -18,7 +18,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:text="Enter the link to Download"
+            android:text="Enter the Download Link"
             android:textColor="@color/primary_text"
             android:textSize="24dp" />
 
@@ -82,8 +82,8 @@
 
         <ImageView
             android:id="@+id/instaimg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_below="@+id/imgtxt"
             android:layout_centerHorizontal="true"
             android:layout_margin="18dp"
