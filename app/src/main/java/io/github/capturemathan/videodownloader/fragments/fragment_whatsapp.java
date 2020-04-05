@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader.fragments;
+package io.github.capturemathan.videodownloader.fragments;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,8 +17,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.allvideodownloader.socialmedia.videodownloader.R;
-import com.allvideodownloader.socialmedia.videodownloader.adapters.WhatsAppAdapter;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 import java.io.File;
@@ -27,6 +25,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
+
+import io.github.capturemathan.videodownloader.R;
+import io.github.capturemathan.videodownloader.adapters.WhatsAppAdapter;
 
 public class fragment_whatsapp extends Fragment {
     ArrayAdapter<File> fileAdapter;

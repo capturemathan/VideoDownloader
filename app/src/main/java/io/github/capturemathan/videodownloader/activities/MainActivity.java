@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader.activities;
+package io.github.capturemathan.videodownloader.activities;
 
 import android.Manifest;
 import android.content.Intent;
@@ -16,11 +16,12 @@ import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.allvideodownloader.socialmedia.videodownloader.R;
-import com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_fb;
-import com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_insta_image;
-import com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_whatsapp;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import io.github.capturemathan.videodownloader.R;
+import io.github.capturemathan.videodownloader.fragments.fragment_fb;
+import io.github.capturemathan.videodownloader.fragments.fragment_insta_image;
+import io.github.capturemathan.videodownloader.fragments.fragment_whatsapp;
 
 public class MainActivity extends AppCompatActivity {
 

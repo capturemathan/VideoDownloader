@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader.adapters;
+package io.github.capturemathan.videodownloader.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,11 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.allvideodownloader.socialmedia.videodownloader.R;
 import com.bumptech.glide.Glide;
 
 import java.io.File;
 import java.util.ArrayList;
+
+import io.github.capturemathan.videodownloader.R;
 
 public class WhatsAppAdapter extends ArrayAdapter {
     private ArrayList<File> filesList;

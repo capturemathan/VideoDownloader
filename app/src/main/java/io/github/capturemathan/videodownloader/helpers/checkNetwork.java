@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader.helpers;
+package io.github.capturemathan.videodownloader.helpers;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

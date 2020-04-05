@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader.models;
+package io.github.capturemathan.videodownloader.models;
 
 public class Video {
     private String mRes;

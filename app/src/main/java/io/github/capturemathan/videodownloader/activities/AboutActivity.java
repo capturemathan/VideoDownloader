@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader.activities;
+package io.github.capturemathan.videodownloader.activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,9 +6,8 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.allvideodownloader.socialmedia.videodownloader.BuildConfig;
-import com.allvideodownloader.socialmedia.videodownloader.R;
-
+import io.github.capturemathan.videodownloader.BuildConfig;
+import io.github.capturemathan.videodownloader.R;
 import mehdi.sakout.aboutpage.AboutPage;
 import mehdi.sakout.aboutpage.Element;
 

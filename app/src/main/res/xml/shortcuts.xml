@@ -7,7 +7,7 @@
         android:shortcutShortLabel="@string/whatsapp_shortcut">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="com.allvideodownloader.socialmedia.videodownloader.fragments.fragment_whatsapp"
+            android:targetClass="io.github.capturemathan.videodownloader.fragments.fragment_whatsapp"
             android:targetPackage="com.allvideodownloader.socialmedia.videodownloader" />
     </shortcut>
 </shortcuts>

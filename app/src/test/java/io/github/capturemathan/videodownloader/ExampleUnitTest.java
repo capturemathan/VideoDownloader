@@ -1,8 +1,8 @@
-package com.allvideodownloader.socialmedia.videodownloader;
+package io.github.capturemathan.videodownloader;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Example local unit test, which will execute on the development machine (host).

@@ -1,4 +1,4 @@
-package com.allvideodownloader.socialmedia.videodownloader.fragments;
+package io.github.capturemathan.videodownloader.fragments;
 
 import android.app.AlertDialog;
 import android.app.DownloadManager;
@@ -21,13 +21,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.allvideodownloader.socialmedia.videodownloader.R;
-import com.allvideodownloader.socialmedia.videodownloader.helpers.checkNetwork;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+
+import io.github.capturemathan.videodownloader.R;
+import io.github.capturemathan.videodownloader.helpers.checkNetwork;
 
 public class fragment_fb extends Fragment {
     ProgressDialog progressDialog;
