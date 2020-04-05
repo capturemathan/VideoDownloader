@@ -22,7 +22,7 @@ public class AboutActivity extends AppCompatActivity {
                 .addGroup("Connect with us")
                 .addEmail("capturesmk@gmail.com")
                 .addWebsite("http://capturemathan.github.io/")
-                .addPlayStore("com.allvideodownloader.socialmedia.videodownloader")
+                .addPlayStore("io.github.capturemathan.videodownloader")
                 .addGitHub("capturemathan")
                 .create();
         setContentView(aboutPage);
