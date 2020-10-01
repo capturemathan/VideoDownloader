@@ -29,7 +29,10 @@
             android:layout_below="@+id/choose"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            float:fletPadding="5dp">
+            float:fletPadding="5dp"
+            float:fletTextAppearance="@color/colorBackground"
+            float:fletBackground="@color/primary_text"
+            >
 
             <EditText
                 android:id="@+id/dsrlink"
@@ -41,7 +44,9 @@
                 android:inputType="text"
                 android:paddingLeft="16dp"
                 android:paddingTop="20dp"
-                android:paddingRight="16dp" />
+                android:paddingRight="16dp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@color/primary_text"/>
         </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
         <Button
