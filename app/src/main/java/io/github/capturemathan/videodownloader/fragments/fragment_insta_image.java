@@ -110,7 +110,7 @@ public class fragment_insta_image extends Fragment {
                 }
             }
         });
-        progressDialog = new ProgressDialog(getContext());
+        progressDialog = new ProgressDialog(getContext(),R.style.ProgressDialogTheme);
         editText = rootView.findViewById(R.id.dsrlink);
         return rootView;
     }

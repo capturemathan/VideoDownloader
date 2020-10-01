@@ -48,7 +48,7 @@ public class fragment_fb extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_fb, container, false);
         Button button = rootView.findViewById(R.id.download);
-        progressDialog = new ProgressDialog(getContext());
+        progressDialog = new ProgressDialog(getContext(),R.style.ProgressDialogTheme);
         editText = rootView.findViewById(R.id.dsrlink);
         t = rootView.findViewById(R.id.genlink);
         b = rootView.findViewById(R.id.fbdload);

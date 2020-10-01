@@ -1,5 +1,6 @@
 package io.github.capturemathan.videodownloader.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -96,7 +97,7 @@ public class fragment_whatsapp extends Fragment {
                                 vidOptions.add("View");
                                 vidOptions.add("Save");
                                 vidOptions.add("Share");
-                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+                                @SuppressLint("ResourceType") AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity(),R.style.MyDialogTheme);
                                 alertDialog.setTitle("Select Your Choice");
                                 ArrayAdapter<String> optionsAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, vidOptions);
                                 alertDialog.setAdapter(optionsAdapter, new DialogInterface.OnClickListener() {

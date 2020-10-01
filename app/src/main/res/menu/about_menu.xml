@@ -5,4 +5,10 @@
         android:icon="@drawable/about"
         android:title="About"
         app:showAsAction="ifRoom"></item>
+
+    <item
+        android:id="@+id/menuTheme"
+        android:icon="@drawable/themebutton"
+        android:title="Light/Dark Mode"
+        app:showAsAction="ifRoom"></item>
 </menu>
