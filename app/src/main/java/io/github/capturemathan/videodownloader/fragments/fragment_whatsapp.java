@@ -1,6 +1,7 @@
 package io.github.capturemathan.videodownloader.fragments;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -29,6 +30,8 @@ import java.util.ArrayList;
 
 import io.github.capturemathan.videodownloader.R;
 import io.github.capturemathan.videodownloader.adapters.WhatsAppAdapter;
+
+import static android.os.Environment.getDataDirectory;
 
 public class fragment_whatsapp extends Fragment {
     ArrayAdapter<File> fileAdapter;
@@ -67,8 +70,9 @@ public class fragment_whatsapp extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_whatsapp, container, false);
-        final String dirPath = Environment.getExternalStorageDirectory().toString() + "/WhatsApp/Media/.Statuses";
-        Log.e("Main", dirPath);
+        Context mContext = rootView.getContext();
+        final String dirPath =  mContext.getExternalFilesDir(null).getAbsolutePath() + "/WhatsApp/Media/.Statuses";
+        Log.v("Main", dirPath);
         final GridView gridView = rootView.findViewById(R.id.whatsappGridView);
         File dir = new File(dirPath);
         final File[] files = dir.listFiles();
